@@ -12,34 +12,22 @@
 	   <script src="index.js"></script>
 
      <div id="cssstyle">none</div>
-     <div style="display: inline-block;width:30%;height:100%"> 
-      <div id="currentDiv" style="width:100px;height:100px;background-color:grey">
-          this is text
-          this is another text
-      </div>
+     <div style="display: flex; flex-direction: row; align-items: flex-start;"> 
+      <div>
+        <div id="containerDiv" style="width:200px;height:200px;border:1px solid black;position: relative;">
+          <div id="currentDiv" style="width:100px;height:100px;background-color:grey">
+              this is text
+              this is another text
+          </div>
+        </div>
 
-      <ul>
-        <li onclick="liClick(this)">width</li>
-        <li onclick="liClick(this)">height</li>
-        <li onclick="liClick(this)">background-color</li>
-        <li onclick="liClick(this)">border-style</li>
-        <li onclick="liClick(this)">border-width</li>
-        <li onclick="liClick(this)">text-align</li>
-        <li onclick="liClick(this)">color</li>
-        <li onclick="liClick(this)">line-height</li>
-        <li onclick="liClick(this)">letter-spacing</li>
-        <li onclick="liClick(this)">text-align</li>
-        <li onclick="liClick(this)">text-decoration</li>
-        <li onclick="liClick(this)">text-indent</li>
-        <li onclick="liClick(this)">text-transform</li>
+        <ul id="propList" style="height:500px;overflow:auto;">
 
-      </ul>
+        </ul>
     </div>
 
-    <div style="width:100%;height:100%;overflow:scroll;"> 
-     <div style="display:flex;gap: 10px;flex-wrap: wrap;" id="flexView">
+     <div style="display:flex;gap: 10px;flex-wrap: wrap;position: relative; border:1px solid black;" id="flexView">
      </div>
-    </div>
 
      
   </body>
