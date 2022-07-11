@@ -1,14 +1,14 @@
 .container {  
     height: 100%;
     display: grid;
-    grid-template-columns: auto 1.4fr;
+    grid-template-columns: 0.3fr auto 1.4fr;
     grid-template-rows: 0.3fr 1.9fr 0.8fr;
     gap: 0px 0px;
     grid-auto-flow: row;
     grid-template-areas:
-      "header header"
-      "options work"
-      "options choose";
+      "header header header"
+      "itemtree options work"
+      "itemtree options choose";
   }
   
   .header { grid-area: header; }
@@ -17,19 +17,22 @@
   
   .work { grid-area: work; }
   
-  .choose { grid-area: choose; }
+  .choose { grid-area: choose; height: 400px; overflow: auto;}
+  
+  .itemtree { grid-area: itemtree; }
   
   
-  * {
-	   margin: 0;
-	   padding : 0;
-    }
+  /* * { */
+	   /* margin: 0; */
+	   /* padding : 0; */
+    /* } */
   
   html, body , .container {
     height: 100vh;
 	width: 100vw;
     margin: 0;
 	padding : 0;
+	overflow: hidden;
   }
   
   

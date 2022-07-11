@@ -1,11 +1,158 @@
 
-let colors = ["black","silver","gray","white","maroon","red","purple","fuchsia","green","lime","olive","yellow","navy","blue","teal","aqua"];
-let smallSize = ["1px", "10px" , "20px" , "30px", "auto"];
+let somecolors = ["black","silver","gray","white","maroon","red","purple","fuchsia","green","lime","olive","yellow","navy","blue","teal","aqua"];
+
+let colors = ["IndianRed",
+"LightCoral",
+"Salmon",
+"DarkSalmon",
+"LightSalmon",
+"Crimson",
+"Red",
+"FireBrick",
+"DarkRed",
+"Pink",
+"LightPink",
+"HotPink",
+"DeepPink",
+"MediumVioletRed",
+"PaleVioletRed",
+"LightSalmon",
+"Coral",
+"Tomato",
+"OrangeRed",
+"DarkOrange",
+"Orange",
+"Gold",
+"Yellow",
+"LightYellow",
+"LemonChiffon",
+"LightGoldenrodYellow",
+"PapayaWhip",
+"Moccasin",
+"PeachPuff",
+"PaleGoldenrod",
+"Khaki",
+"DarkKhaki",
+"Lavender",
+"Thistle",
+"Plum",
+"Violet",
+"Orchid",
+"Fuchsia",
+"Magenta",
+"MediumOrchid",
+"MediumPurple",
+"RebeccaPurple",
+"BlueViolet",
+"DarkViolet",
+"DarkOrchid",
+"DarkMagenta",
+"Purple",
+"Indigo",
+"SlateBlue",
+"DarkSlateBlue",
+"MediumSlateBlue",
+"GreenYellow",
+"Chartreuse",
+"LawnGreen",
+"Lime",
+"LimeGreen",
+"PaleGreen",
+"LightGreen",
+"MediumSpringGreen",
+"SpringGreen",
+"MediumSeaGreen",
+"SeaGreen",
+"ForestGreen",
+"Green",
+"DarkGreen",
+"YellowGreen",
+"OliveDrab",
+"Olive",
+"DarkOliveGreen",
+"MediumAquamarine",
+"DarkSeaGreen",
+"LightSeaGreen",
+"DarkCyan",
+"Teal",
+"Aqua",
+"Cyan",
+"LightCyan",
+"PaleTurquoise",
+"Aquamarine",
+"Turquoise",
+"MediumTurquoise",
+"DarkTurquoise",
+"CadetBlue",
+"SteelBlue",
+"LightSteelBlue",
+"PowderBlue",
+"LightBlue",
+"SkyBlue",
+"LightSkyBlue",
+"DeepSkyBlue",
+"DodgerBlue",
+"CornflowerBlue",
+"MediumSlateBlue",
+"RoyalBlue",
+"Blue",
+"MediumBlue",
+"DarkBlue",
+"Navy",
+"MidnightBlue",
+"Cornsilk",
+"BlanchedAlmond",
+"Bisque",
+"NavajoWhite",
+"Wheat",
+"BurlyWood",
+"Tan",
+"RosyBrown",
+"SandyBrown",
+"Goldenrod",
+"DarkGoldenrod",
+"Peru",
+"Chocolate",
+"SaddleBrown",
+"Sienna",
+"Brown",
+"Maroon",
+"White",
+"Snow",
+"HoneyDew",
+"MintCream",
+"Azure",
+"AliceBlue",
+"GhostWhite",
+"WhiteSmoke",
+"SeaShell",
+"Beige",
+"OldLace",
+"FloralWhite",
+"Ivory",
+"AntiqueWhite",
+"Linen",
+"LavenderBlush",
+"MistyRose",
+"Gainsboro",
+"LightGray",
+"Silver",
+"DarkGray",
+"Gray",
+"DimGray",
+"LightSlateGray",
+"SlateGray",
+"DarkSlateGray",
+"Black" ];
+
+
+let smallSize = ["1px", "5px", "10px" , "20px" , "30px", "50px" , "100px", "200px", "300px", "400px", "500px", "10%" , "20%" , "50%", "100%", "auto"];
 let bigSize = ["50px", "100px", "200px" , "300px" , "400px", "500px", "600px", "auto"];
 let borderStyle = ['none','hidden','dotted','dashed','solid','double','groove','ridge','inset','outset','initial','inherit'];
-let positionValues = ["static","relative","fixed","absolute","sticky"];
 let textDecoStyle = ["solid","double","dotted","dashed","wavy","initial","inherit"];
 let textDecoLine = ["none","underline","overline","line-through","initial","inherit"];
+let displayValues = ["inline","block","contents","flex","grid","inline-block","inline-flex","inline-grid","inline-table","list-item","run-in","table","table-caption","table-column-group","table-header-group","table-footer-group","table-row-group","table-cell","table-column","table-row","none","initial","inherit"];
+let positionValues = ["static","absolute","fixed","relative","sticky","initial","inherit"];
 let props = { 
                 
 
@@ -96,7 +243,7 @@ let props = {
     'counter-reset': {  'values' : [] , 'desc' : ' Creates or resets one or more CSS counters'} ,
     'cursor': {  'values' : [] , 'desc' : ' Specifies the mouse cursor to be displayed when pointing over an element'} ,
     'direction': {  'values' : [] , 'desc' : ' Specifies the text direction/writing direction'} ,
-    'display': {  'values' : [] , 'desc' : ' Specifies how a certain HTML element should be displayed'} ,
+    'display': {  'values' : displayValues , 'desc' : ' Specifies how a certain HTML element should be displayed'} ,
     'empty-cells': {  'values' : [] , 'desc' : ' Specifies whether or not to display borders and background on empty cells in a table'} ,
     'filter': {  'values' : [] , 'desc' : ' Defines effects (e.g. blurring or color shifting) on an element before the element is displayed'} ,
     'flex': {  'values' : [] , 'desc' : ' A shorthand property for the flex-grow, flex-shrink, and the flex-basis properties'} ,
@@ -208,7 +355,7 @@ let props = {
     'perspective': {  'values' : [] , 'desc' : ' Gives a 3D-positioned element some perspective'} ,
     'perspective-origin': {  'values' : [] , 'desc' : ' Defines at which position the user is looking at the 3D-positioned element'} ,
     'pointer-events': {  'values' : [] , 'desc' : ' Defines whether or not an element reacts to pointer events'} ,
-    'position': {  'values' : [] , 'desc' : ' Specifies the type of positioning method used for an element (static, relative, absolute or fixed)'} ,
+    'position': {  'values' : positionValues , 'desc' : ' Specifies the type of positioning method used for an element (static, relative, absolute or fixed)'} ,
     'quotes': {  'values' : [] , 'desc' : ' Sets the type of quotation marks for embedded quotations'} ,
     'resize': {  'values' : [] , 'desc' : ' Defines if (and how) an element is resizable by the user'} ,
     'right': {  'values' : smallSize , 'desc' : ' Specifies the right position of a positioned element'} ,
@@ -258,6 +405,19 @@ let props = {
 
 }
 
+/* let elementTree = { "type" : "div", "style" : "width:100px;height:100px;background-color:grey", children : [ 
+														{ "type" : "div", "style" : "width:100px;height:100px;background-color:grey", children : [ 
+																									  { "type" : "div", "style" : "width:100px;height:100px;background-color:grey", children : []} 
+																								   ]},
+														{ "type" : "div", "style" : "width:100px;height:100px;background-color:grey", children : [] } ,
+														{ "type" : "div", "style" : "width:100px;height:100px;background-color:grey", children : [] } ,
+														{ "type" : "div", "style" : "width:100px;height:100px;background-color:grey", children : [] } ,
+														{ "type" : "div", "style" : "width:100px;height:100px;background-color:grey", children : [] } ,
+												            ]};  */
+															
+let elementTree = { "type" : "div", "style" : "width:100px;height:100px;background-color:grey", children : []};  
+															
+let currentDiv = null;
 
 document.addEventListener('DOMContentLoaded', function(){ 
 
@@ -275,8 +435,73 @@ document.addEventListener('DOMContentLoaded', function(){
         }
         propList.appendChild(elemDiv);
     }
+	
+	const itemstreeElement = document.getElementById('itemstree');
+	
+	showTree(itemstreeElement, elementTree);
+
+    const htmlElement = document.getElementById('work');
+	buildHtml(htmlElement , elementTree);
+	
+	currentDiv = elementTree;
 
 }, false);
+
+function showTree(rootLi, item)
+{
+	let uLi = document.createElement('ul');
+	rootLi.appendChild(uLi);
+	
+	for (let i=0; i < item.children.length; i++)
+	{
+		let elemLi = document.createElement('li');
+		elemLi.innerText = item.children[i].type;
+		elemLi.workItem = item.children[i];
+		elemLi.addEventListener("click", treeLiClick);
+		uLi.appendChild(elemLi);
+		
+		showTree(elemLi, item.children[i]);
+	}
+	
+	let elemLi = document.createElement('li');
+	uLi.appendChild(elemLi);
+
+	let addBtn = document.createElement('button');
+	addBtn.innerText = "+";
+	addBtn.addEventListener("click", treeBtnClick);
+	addBtn.workItem = item;
+	elemLi.appendChild(addBtn);
+}
+
+function treeLiClick(event)
+{
+	currentDiv = event.target.workItem;
+}
+
+function treeBtnClick(event)
+{
+	event.target.workItem.children.push({ "type" : "div", "style" : "width:100px;height:100px;background-color:grey", children : [] });
+	const itemstreeElement = document.getElementById('itemstree');
+	itemstreeElement.innerHTML = '';
+	
+	showTree(itemstreeElement, elementTree);
+	
+	const htmlElement = document.getElementById('work');
+	htmlElement.innerHTML = '';
+	buildHtml(htmlElement , elementTree);
+}
+
+function buildHtml(element , item)
+{
+	for (let i=0; i < item.children.length; i++)
+	{
+		let elem = document.createElement(item.children[i].type);
+		elem.style.cssText = item.children[i].style;
+		element.appendChild(elem);
+		
+		buildHtml(elem, item.children[i]);
+	}
+}
 
 function liClick(event)
 {
@@ -284,7 +509,7 @@ function liClick(event)
    const flexElem = document.getElementById('flexView');
    flexElem.innerHTML = '';
 
-   const currentDiv = document.getElementById('currentDiv');
+   
 
    //if (!currentDiv.style.cssText)
    //{
@@ -295,10 +520,10 @@ function liClick(event)
     {
         //cssText += props[j].prop + ":" + props[j].vals[Math.floor(Math.random() * props[j].vals.length)] + ";";
 
-        let cssText = currentDiv.style.cssText + event.target.textContent + ":" + props[event.target.textContent].values[j] + ";";
+        let cssText = currentDiv.style + event.target.textContent + ":" + props[event.target.textContent].values[j] + ";";
 
         var elemDiv = document.createElement('div');
-        elemDiv.style.cssText = currentDiv.style.cssText;
+        elemDiv.style.cssText = currentDiv.style;
         elemDiv.style[event.target.textContent] = props[event.target.textContent].values[j];
         elemDiv.innerText = event.target.textContent + ":" + props[event.target.textContent].values[j];
         flexElem.appendChild(elemDiv);
@@ -309,12 +534,16 @@ function liClick(event)
 
 function elementClick(event)
 {
-    const currentDiv = document.getElementById('currentDiv');
-    currentDiv.style.cssText = event.target.style.cssText;
+    //const currentDiv = document.getElementById('currentDiv');
+    currentDiv.style = event.target.style.cssText;
 
     const flexElem = document.getElementById('flexView');
     flexElem.innerHTML = '';
 
-    const cssstyle = document.getElementById('cssstyle');
-    cssstyle.innerHTML = event.target.style.cssText;
+    //const cssstyle = document.getElementById('cssstyle');
+    //cssstyle.innerHTML = event.target.style.cssText;
+	
+	const htmlElement = document.getElementById('work');
+	htmlElement.innerHTML = '';
+	buildHtml(htmlElement , elementTree);
 }
