@@ -15,11 +15,11 @@
   
   .options { grid-area: options; }
   
-  .work { grid-area: work; }
+  .work { grid-area: work; overflow: auto; }
   
   .choose { grid-area: choose; height: 400px; overflow: auto;}
   
-  .itemtree { grid-area: itemtree; }
+  .itemtree { grid-area: itemtree; overflow: auto; }
   
   
   /* * { */
@@ -33,6 +33,10 @@
     margin: 0;
 	padding : 0;
 	overflow: hidden;
+  }
+  
+  .selected {
+	      background-color: lightgray;
   }
   
   

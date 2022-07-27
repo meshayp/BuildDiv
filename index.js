@@ -215,10 +215,10 @@ let props = {
     'border-top-style': {  'values' : borderStyle , 'desc' : ' Sets the style of the top border'} ,
     'border-top-width': {  'values' : smallSize , 'desc' : ' Sets the width of the top border'} ,
     'border-width': {  'values' : smallSize , 'desc' : ' Sets the width of the four borders'} ,
-    'bottom': {  'values' : [] , 'desc' : ' Sets the elements position, from the bottom of its parent element'} ,
+    'bottom': {  'values' : smallSize , 'desc' : ' Sets the elements position, from the bottom of its parent element'} ,
     'box-decoration-break': {  'values' : [] , 'desc' : ' Sets the behavior of the background and border of an element at page-break, or, for in-line elements, at line-break.'} ,
     'box-shadow': {  'values' : [] , 'desc' : ' Attaches one or more shadows to an element'} ,
-    'box-sizing': {  'values' : [] , 'desc' : ' Defines how the width and height of an element are calculated: should they include padding and borders, or not'} ,
+    'box-sizing': {  'values' : ['content-box','border-box','initial','inherit'] , 'desc' : ' Defines how the width and height of an element are calculated: should they include padding and borders, or not'} ,
     'break-after': {  'values' : [] , 'desc' : ' Specifies whether or not a page-, column-, or region-break should occur after the specified element'} ,
     'break-before': {  'values' : [] , 'desc' : ' Specifies whether or not a page-, column-, or region-break should occur before the specified element'} ,
     'break-inside': {  'values' : [] , 'desc' : ' Specifies whether or not a page-, column-, or region-break should occur inside the specified element'} ,
@@ -379,7 +379,7 @@ let props = {
     'text-shadow': {  'values' : [] , 'desc' : ' Adds shadow to text'} ,
     'text-transform': {  'values' : [] , 'desc' : ' Controls the capitalization of text'} ,
     'text-underline-position': {  'values' : [] , 'desc' : ' Specifies the position of the underline which is set using the text-decoration property'} ,
-    'top': {  'values' : [] , 'desc' : ' Specifies the top position of a positioned element'} ,
+    'top': {  'values' : smallSize , 'desc' : ' Specifies the top position of a positioned element'} ,
     'transform': {  'values' : [] , 'desc' : ' Applies a 2D or 3D transformation to an element'} ,
     'transform-origin': {  'values' : [] , 'desc' : ' Allows you to change the position on transformed elements'} ,
     'transform-style': {  'values' : [] , 'desc' : ' Specifies how nested elements are rendered in 3D space'} ,
@@ -405,6 +405,132 @@ let props = {
 
 }
 
+
+let htmlElements = [
+	
+{'type' : '!DOCTYPE','desc' : 'Defines the document type'},
+{'type' : 'a','desc' : 'Defines a hyperlink'},
+{'type' : 'abbr','desc' : 'Defines an abbreviation or an acronym'},
+{'type' : 'acronym','desc' : 'Not supported in HTML5. Use <abbr> instead. Defines an acronym'},
+{'type' : 'address','desc' : 'Defines contact information for the author/owner of a document'},
+{'type' : 'applet','desc' : 'Not supported in HTML5. Use <embed> or <object> instead. Defines an embedded applet'},
+{'type' : 'area','desc' : 'Defines an area inside an image map'},
+{'type' : 'article','desc' : 'Defines an article'},
+{'type' : 'aside','desc' : 'Defines content aside from the page content'},
+{'type' : 'audio','desc' : 'Defines embedded sound content'},
+{'type' : 'b','desc' : 'Defines bold text'},
+{'type' : 'base','desc' : 'Specifies the base URL/target for all relative URLs in a document'},
+{'type' : 'basefont','desc' : 'Not supported in HTML5. Use CSS instead.  Specifies a default color, size, and font for all text in a document'},
+{'type' : 'bdi','desc' : 'Isolates a part of text that might be formatted in a different direction from other text outside it'},
+{'type' : 'bdo','desc' : 'Overrides the current text direction'},
+{'type' : 'big','desc' : 'Not supported in HTML5. Use CSS instead. Defines big text'},
+{'type' : 'blockquote','desc' : 'Defines a section that is quoted from another source'},
+{'type' : 'body','desc' : 'Defines the documents body'},
+{'type' : 'br','desc' : 'Defines a single line break'},
+{'type' : 'button','desc' : 'Defines a clickable button'},
+{'type' : 'canvas','desc' : 'Used to draw graphics, on the fly, via scripting (usually JavaScript)'},
+{'type' : 'caption','desc' : 'Defines a table caption'},
+{'type' : 'center','desc' : 'Not supported in HTML5. Use CSS instead. Defines centered text'},
+{'type' : 'cite','desc' : 'Defines the title of a work'},
+{'type' : 'code','desc' : 'Defines a piece of computer code'},
+{'type' : 'col','desc' : 'Specifies column properties for each column within a <colgroup> element '},
+{'type' : 'colgroup','desc' : 'Specifies a group of one or more columns in a table for formatting'},
+{'type' : 'data','desc' : 'Adds a machine-readable translation of a given content'},
+{'type' : 'datalist','desc' : 'Specifies a list of pre-defined options for input controls'},
+{'type' : 'dd','desc' : 'Defines a description/value of a term in a description list'},
+{'type' : 'del','desc' : 'Defines text that has been deleted from a document'},
+{'type' : 'details','desc' : 'Defines additional details that the user can view or hide'},
+{'type' : 'dfn','desc' : 'Specifies a term that is going to be defined within the content'},
+{'type' : 'dialog','desc' : 'Defines a dialog box or window'},
+{'type' : 'dir','desc' : 'Not supported in HTML5. Use <ul> instead. Defines a directory list'},
+{'type' : 'div','desc' : 'Defines a section in a document'},
+{'type' : 'dl','desc' : 'Defines a description list'},
+{'type' : 'dt','desc' : 'Defines a term/name in a description list'},
+{'type' : 'em','desc' : 'Defines emphasized text '},
+{'type' : 'embed','desc' : 'Defines a container for an external application'},
+{'type' : 'fieldset','desc' : 'Groups related elements in a form'},
+{'type' : 'figcaption','desc' : 'Defines a caption for a <figure> element'},
+{'type' : 'figure','desc' : 'Specifies self-contained content'},
+{'type' : 'font','desc' : 'Not supported in HTML5. Use CSS instead. Defines font, color, and size for text'},
+{'type' : 'footer','desc' : 'Defines a footer for a document or section'},
+{'type' : 'form','desc' : 'Defines an HTML form for user input'},
+{'type' : 'frame','desc' : 'Not supported in HTML5. Defines a window (a frame) in a frameset'},
+{'type' : 'frameset','desc' : 'Not supported in HTML5. Defines a set of frames'},
+{'type' : 'h1toh6','desc' : 'Defines HTML headings'},
+{'type' : 'head','desc' : 'Contains metadata/information for the document'},
+{'type' : 'header','desc' : 'Defines a header for a document or section'},
+{'type' : 'hr','desc' : 'Defines a thematic change in the content'},
+{'type' : 'html','desc' : 'Defines the root of an HTML document'},
+{'type' : 'i','desc' : 'Defines a part of text in an alternate voice or mood'},
+{'type' : 'iframe','desc' : 'Defines an inline frame'},
+{'type' : 'img','desc' : 'Defines an image'},
+{'type' : 'input','desc' : 'Defines an input control'},
+{'type' : 'ins','desc' : 'Defines a text that has been inserted into a document'},
+{'type' : 'kbd','desc' : 'Defines keyboard input'},
+{'type' : 'label','desc' : 'Defines a label for an <input> element'},
+{'type' : 'legend','desc' : 'Defines a caption for a <fieldset> element'},
+{'type' : 'li','desc' : 'Defines a list item'},
+{'type' : 'link','desc' : 'Defines the relationship between a document and an external resource (most used to link to style sheets)'},
+{'type' : 'main','desc' : 'Specifies the main content of a document'},
+{'type' : 'map','desc' : 'Defines an image map'},
+{'type' : 'mark','desc' : 'Defines marked/highlighted text'},
+{'type' : 'meta','desc' : 'Defines metadata about an HTML document'},
+{'type' : 'meter','desc' : 'Defines a scalar measurement within a known range (a gauge)'},
+{'type' : 'nav','desc' : 'Defines navigation links'},
+{'type' : 'noframes','desc' : 'Not supported in HTML5.  Defines an alternate content for users that do not support frames'},
+{'type' : 'noscript','desc' : 'Defines an alternate content for users that do not support client-side scripts'},
+{'type' : 'object','desc' : 'Defines a container for an external application'},
+{'type' : 'ol','desc' : 'Defines an ordered list'},
+{'type' : 'optgroup','desc' : 'Defines a group of related options in a drop-down list'},
+{'type' : 'option','desc' : 'Defines an option in a drop-down list'},
+{'type' : 'output','desc' : 'Defines the result of a calculation'},
+{'type' : 'p','desc' : 'Defines a paragraph'},
+{'type' : 'param','desc' : 'Defines a parameter for an object'},
+{'type' : 'picture','desc' : 'Defines a container for multiple image resources'},
+{'type' : 'pre','desc' : 'Defines preformatted text'},
+{'type' : 'progress','desc' : 'Represents the progress of a task'},
+{'type' : 'q','desc' : 'Defines a short quotation'},
+{'type' : 'rp','desc' : 'Defines what to show in browsers that do not support ruby annotations'},
+{'type' : 'rt','desc' : 'Defines an explanation/pronunciation of characters (for East Asian typography)'},
+{'type' : 'ruby','desc' : 'Defines a ruby annotation (for East Asian typography)'},
+{'type' : 's','desc' : 'Defines text that is no longer correct'},
+{'type' : 'samp','desc' : 'Defines sample output from a computer program'},
+{'type' : 'script','desc' : 'Defines a client-side script'},
+{'type' : 'section','desc' : 'Defines a section in a document'},
+{'type' : 'select','desc' : 'Defines a drop-down list'},
+{'type' : 'small','desc' : 'Defines smaller text'},
+{'type' : 'source','desc' : 'Defines multiple media resources for media elements (<video> and <audio>)'},
+{'type' : 'span','desc' : 'Defines a section in a document'},
+{'type' : 'strike','desc' : 'Not supported in HTML5. Use <del> or <s> instead.  Defines strikethrough text'},
+{'type' : 'strong','desc' : 'Defines important text'},
+{'type' : 'style','desc' : 'Defines style information for a document'},
+{'type' : 'sub','desc' : 'Defines subscripted text'},
+{'type' : 'summary','desc' : 'Defines a visible heading for a <details> element'},
+{'type' : 'sup','desc' : 'Defines superscripted text'},
+{'type' : 'svg','desc' : 'Defines a container for SVG graphics'},
+{'type' : 'table','desc' : 'Defines a table'},
+{'type' : 'tbody','desc' : 'Groups the body content in a table'},
+{'type' : 'td','desc' : 'Defines a cell in a table'},
+{'type' : 'template','desc' : 'Defines a container for content that should be hidden when the page loads'},
+{'type' : 'textarea','desc' : 'Defines a multiline input control (text area)'},
+{'type' : 'tfoot','desc' : 'Groups the footer content in a table'},
+{'type' : 'th','desc' : 'Defines a header cell in a table'},
+{'type' : 'thead','desc' : 'Groups the header content in a table'},
+{'type' : 'time','desc' : 'Defines a specific time (or datetime)'},
+{'type' : 'title','desc' : 'Defines a title for the document'},
+{'type' : 'tr','desc' : 'Defines a row in a table'},
+{'type' : 'track','desc' : 'Defines text tracks for media elements (<video> and <audio>)'},
+{'type' : 'tt','desc' : 'Not supported in HTML5. Use CSS instead.  Defines teletype text'},
+{'type' : 'u','desc' : 'Defines some text that is unarticulated and styled differently from normal text'},
+{'type' : 'ul','desc' : 'Defines an unordered list'},
+{'type' : 'var','desc' : 'Defines a variable'},
+{'type' : 'video','desc' : 'Defines embedded video content'},
+{'type' : 'wbr','desc' : 'Defines a possible line-break'},
+
+	
+]
+
+
 /* let elementTree = { "type" : "div", "style" : "width:100px;height:100px;background-color:grey", children : [ 
 														{ "type" : "div", "style" : "width:100px;height:100px;background-color:grey", children : [ 
 																									  { "type" : "div", "style" : "width:100px;height:100px;background-color:grey", children : []} 
@@ -419,21 +545,44 @@ let elementTree = { "type" : "div", "style" : "width:100px;height:100px;backgrou
 															
 let currentDiv = null;
 
+let selectedTreeItems = [];
+
 document.addEventListener('DOMContentLoaded', function(){ 
 
     const propList = document.getElementById('propList');
 
     for (const item in props) {
         let elemDiv = document.createElement('li');
-        elemDiv.innerText = item; 
-        elemDiv.title=props[item].desc;
-        elemDiv.addEventListener("click", liClick);
-        elemDiv.style.color = 'lightgrey';
+		propList.appendChild(elemDiv);
+		
+		let elemOptionDiv = document.createElement('div');
+		elemDiv.appendChild(elemOptionDiv);
+		
+        elemOptionDiv.innerText = item; 
+        elemOptionDiv.title=props[item].desc;
+        elemOptionDiv.addEventListener("click", liClick);
+        elemOptionDiv.style.color = 'lightgrey';
         if (props[item].values.length > 0)
         {
-            elemDiv.style.color = 'black';
+            elemOptionDiv.style.color = 'black';
+			
+			let selectList = document.createElement("select");
+			selectList.id = "mySelect";
+
+			//Create and append the options
+			for (var i = 0; i < props[item].values.length; i++) {
+				var option = document.createElement("option");
+				option.value = props[item].values[i];
+				option.text = props[item].values[i];
+				selectList.appendChild(option);
+			}
+			
+			elemDiv.appendChild(selectList);
+			
+			selectList.addEventListener("change", onchangeOption);
         }
-        propList.appendChild(elemDiv);
+        
+		
     }
 	
 	const itemstreeElement = document.getElementById('itemstree');
@@ -446,6 +595,22 @@ document.addEventListener('DOMContentLoaded', function(){
 	currentDiv = elementTree;
 
 }, false);
+
+function onchangeOption(event)
+{
+	//const currentDiv = document.getElementById('currentDiv');
+    currentDiv.style += event.target.parentElement.children[0].textContent + ":" + event.target.value + ";";
+
+    const flexElem = document.getElementById('flexView');
+    flexElem.innerHTML = '';
+
+    //const cssstyle = document.getElementById('cssstyle');
+    //cssstyle.innerHTML = event.target.style.cssText;
+	
+	const htmlElement = document.getElementById('work');
+	htmlElement.innerHTML = '';
+	buildHtml(htmlElement , elementTree);
+}
 
 function showTree(rootLi, item)
 {
@@ -471,16 +636,48 @@ function showTree(rootLi, item)
 	addBtn.addEventListener("click", treeBtnClick);
 	addBtn.workItem = item;
 	elemLi.appendChild(addBtn);
+	
+	
+	//Create array of options to be added
+	//var array = ["div","span","button","img"];
+
+	//Create and append select list
+	var selectList = document.createElement("select");
+	selectList.id = "mySelect";
+
+	//Create and append the options
+	for (var i = 0; i < htmlElements.length; i++) {
+		var option = document.createElement("option");
+		option.value = htmlElements[i].type;
+		option.text = htmlElements[i].type;
+		option.title = htmlElements[i].desc;
+		selectList.appendChild(option);
+	}
+	
+	elemLi.appendChild(selectList);
+	
 }
 
 function treeLiClick(event)
 {
 	currentDiv = event.target.workItem;
+	
+	for (const element of selectedTreeItems) {
+		element.classList.remove("selected");
+	}
+	
+	selectedTreeItems = [];
+
+	selectedTreeItems.push(event.target);
+	
+	for (const element of selectedTreeItems) {
+		element.classList.add("selected");
+	}
 }
 
 function treeBtnClick(event)
 {
-	event.target.workItem.children.push({ "type" : "div", "style" : "width:100px;height:100px;background-color:grey", children : [] });
+	event.target.workItem.children.push({ "type" : event.target.nextSibling.value, "style" : "width:100px;height:100px;background-color:grey", children : [] });
 	const itemstreeElement = document.getElementById('itemstree');
 	itemstreeElement.innerHTML = '';
 	
@@ -509,8 +706,6 @@ function liClick(event)
    const flexElem = document.getElementById('flexView');
    flexElem.innerHTML = '';
 
-   
-
    //if (!currentDiv.style.cssText)
    //{
    // currentDiv.cssText = "width:100px;height:100px;background-color:grey;";
@@ -522,7 +717,11 @@ function liClick(event)
 
         let cssText = currentDiv.style + event.target.textContent + ":" + props[event.target.textContent].values[j] + ";";
 
-        var elemDiv = document.createElement('div');
+		//let outerDiv = document.createElement(currentDiv.type);
+		//outerDiv.style.cssText = "width:100px;height:100%;background-color:gray;position:relative;";
+		//flexElem.appendChild(outerDiv);
+
+        let elemDiv = document.createElement(currentDiv.type);
         elemDiv.style.cssText = currentDiv.style;
         elemDiv.style[event.target.textContent] = props[event.target.textContent].values[j];
         elemDiv.innerText = event.target.textContent + ":" + props[event.target.textContent].values[j];
